@@ -15,6 +15,12 @@ func GetAllBroths(c *gin.Context) {
 	c.JSON(http.StatusAccepted, &broths)
 }
 
-func TesteClientHttp(c *gin.Context) {
+func CreateOrderId(c *gin.Context) {
 	c.JSON(http.StatusCreated, client.CreateReqWithExternalAPI())
+}
+
+func GetAllProteins(c *gin.Context) {
+	var proteins []models.Protein
+	database.DB.Find(&proteins)
+	c.JSON(http.StatusAccepted, proteins)
 }

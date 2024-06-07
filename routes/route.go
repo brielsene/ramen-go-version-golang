@@ -9,6 +9,7 @@ import (
 func HandleRequests() {
 	r := gin.Default()
 	r.GET("/broths", controllers.GetAllBroths)
-	r.POST("/test", controllers.TesteClientHttp)
+	r.POST("/test", controllers.CreateOrderId)
+	r.GET("/proteins", controllers.GetAllProteins)
 	r.Run(":8000")
 }

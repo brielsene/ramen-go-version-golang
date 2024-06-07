@@ -20,7 +20,8 @@ func ConnectWithDB() {
 		log.Fatal("Erro ao conectar com DB: ", err)
 	}
 
-	var model models.Broth
-	DB.AutoMigrate(&model)
+	var modelBroth models.Broth
+	var modelProtein models.Protein
+	DB.AutoMigrate(&modelBroth, &modelProtein)
 
 }
