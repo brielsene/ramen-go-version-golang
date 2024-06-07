@@ -19,9 +19,9 @@ func ConnectWithDB() {
 	if err != nil {
 		log.Fatal("Erro ao conectar com DB: ", err)
 	}
-
+	var modelOrder models.Order
 	var modelBroth models.Broth
 	var modelProtein models.Protein
-	DB.AutoMigrate(&modelBroth, &modelProtein)
+	DB.AutoMigrate(&modelBroth, &modelProtein, &modelOrder)
 
 }
