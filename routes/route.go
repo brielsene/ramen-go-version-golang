@@ -9,5 +9,6 @@ import (
 func HandleRequests() {
 	r := gin.Default()
 	r.GET("/broths", controllers.GetAllBroths)
+	r.POST("/test", controllers.TesteClientHttp)
 	r.Run(":8000")
 }
