@@ -32,10 +32,9 @@ func CreateOrder(c *gin.Context) {
 	var proteinSearch models.Protein
 	brothId, _ := strconv.Atoi(dto.BrothId)
 	proteinId, _ := strconv.Atoi(dto.ProteinId)
-	database.DB.First(&brothSearch, brothId)
-	if err := database.DB.First(&brothSearch, dto.BrothId).Error; err != nil {
+	if err := database.DB.First(&brothSearch, brothId).Error; err != nil {
 		if err == gorm.ErrRecordNotFound {
-			c.JSON(http.StatusNotFound, gin.H{"error": "Broth not found"})
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Broth not found"})
 		} else {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Database error"})
 		}
@@ -44,7 +43,7 @@ func CreateOrder(c *gin.Context) {
 
 	if err := database.DB.First(&proteinSearch, proteinId).Error; err != nil {
 		if err == gorm.ErrRecordNotFound {
-			c.JSON(http.StatusNotFound, gin.H{"error": "Protein not found"})
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Protein not found"})
 		} else {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Database error"})
 		}
@@ -58,6 +57,6 @@ func CreateOrder(c *gin.Context) {
 	}
 	order := models.Order{Id: idOrder, Description: proteinSearch.Name + " " + brothSearch.Name, Image: "https://tech.redventures.com.br/icons/ramen/ramenChasu.png"}
 	database.DB.Save(&order)
-	c.JSON(http.StatusOK, order)
+	c.JSON(http.StatusAccepted, order)
 
 }

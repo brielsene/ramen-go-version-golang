@@ -7,5 +7,6 @@ import (
 
 func main() {
 	database.ConnectWithDB()
+	// middleware.ErrorHandlingMiddleware()
 	routes.HandleRequests()
 }
