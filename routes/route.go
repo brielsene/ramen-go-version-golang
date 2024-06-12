@@ -4,11 +4,14 @@ import (
 	"ramen-go/controllers"
 	"ramen-go/middleware"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func HandleRequests() {
 	r := gin.Default()
+	//Permitir todas as origens
+	r.Use(cors.Default())
 	// Grupo de rotas protegidas pela chave de API
 	protected := r.Group("/", middleware.APIKeyMiddleware())
 	protected.GET("/broths", controllers.GetAllBroths)
