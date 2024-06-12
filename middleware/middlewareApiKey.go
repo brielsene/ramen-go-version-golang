@@ -6,11 +6,9 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
 func APIKeyMiddleware() gin.HandlerFunc {
-	godotenv.Load()
 	apiKey := os.Getenv("API_KEY_PERSONAL")
 	fmt.Println("API-KEY_PERSONAL: ", apiKey)
 	return func(c *gin.Context) {

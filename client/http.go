@@ -8,13 +8,10 @@ import (
 	"net/http"
 	"os"
 	"ramen-go/dto"
-
-	"github.com/joho/godotenv"
 )
 
 func CreateReqWithExternalAPI() dto.OrderId {
-	//CARREGAR ARQUIVOS DO .ENV
-	godotenv.Load()
+
 	url := "https://api.tech.redventures.com.br/orders/generate-id"
 
 	client := http.Client{}
