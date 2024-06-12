@@ -28,6 +28,12 @@ func GetAllProteins(c *gin.Context) {
 func CreateOrder(c *gin.Context) {
 	var dto dto.OrderRequestDto
 	c.ShouldBindJSON(&dto)
+	if dto.BrothId == "" || dto.ProteinId == "" {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "brothId and proteinId are required",
+		})
+		return
+	}
 	var brothSearch models.Broth
 	var proteinSearch models.Protein
 	brothId, _ := strconv.Atoi(dto.BrothId)
@@ -57,6 +63,6 @@ func CreateOrder(c *gin.Context) {
 	}
 	order := models.Order{Id: idOrder, Description: proteinSearch.Name + " " + brothSearch.Name, Image: "https://tech.redventures.com.br/icons/ramen/ramenChasu.png"}
 	database.DB.Save(&order)
-	c.JSON(http.StatusAccepted, order)
+	c.JSON(http.StatusCreated, order)
 
 }
