@@ -13,18 +13,21 @@ import (
 	"gorm.io/gorm"
 )
 
+// RETURN ALL BROTHS
 func GetAllBroths(c *gin.Context) {
 	var broths []models.Broth
 	database.DB.Find(&broths)
 	c.JSON(http.StatusOK, &broths)
 }
 
+// RETURN ALL PROTEINS
 func GetAllProteins(c *gin.Context) {
 	var proteins []models.Protein
 	database.DB.Find(&proteins)
 	c.JSON(http.StatusOK, proteins)
 }
 
+// CREATE ORDER
 func CreateOrder(c *gin.Context) {
 	var dto dto.OrderRequestDto
 	c.ShouldBindJSON(&dto)
