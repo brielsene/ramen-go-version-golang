@@ -17,9 +17,12 @@ var (
 
 func ConnectWithDB() {
 	godotenv.Load()
-	user := os.Getenv("DB_USERNAME")
-	password := os.Getenv("DB_PASSWORD")
-	url := os.Getenv("DB_URL")
+	user := os.Getenv("DATABASE_USERNAME")
+	password := os.Getenv("DATABASE_PASSWORD")
+	url := os.Getenv("DATABASE_URL")
+	if user == "" || password == "" || url == "" {
+		log.Fatal("Variáveis de ambiente não configuradas corretamente.")
+	}
 	dsn := "host=" + url + " user=" + user + " password=" + password + " dbname=ramendb port=5432 sslmode=disable"
 	DB, err = gorm.Open(postgres.Open(dsn))
 	if err != nil {
