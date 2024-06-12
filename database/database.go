@@ -2,8 +2,10 @@ package database
 
 import (
 	"log"
+	"os"
 	"ramen-go/models"
 
+	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -14,7 +16,11 @@ var (
 )
 
 func ConnectWithDB() {
-	dsn := "host=localhost user=root password=root dbname=ramendb port=5432 sslmode=disable"
+	godotenv.Load()
+	user := os.Getenv("DB_USERNAME")
+	password := os.Getenv("DB_PASSWORD")
+	url := os.Getenv("DB_URL")
+	dsn := "host=" + url + " user=" + user + " password=" + password + " dbname=ramendb port=5432 sslmode=disable"
 	DB, err = gorm.Open(postgres.Open(dsn))
 	if err != nil {
 		log.Fatal("Erro ao conectar com DB: ", err)
