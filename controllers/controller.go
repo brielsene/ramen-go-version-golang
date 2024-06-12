@@ -61,7 +61,7 @@ func CreateOrder(c *gin.Context) {
 	if err != nil {
 		log.Fatal("Erro de conversão: ", err)
 	}
-	order := models.Order{Id: idOrder, Description: proteinSearch.Name + " " + brothSearch.Name, Image: "https://tech.redventures.com.br/icons/ramen/ramenChasu.png"}
+	order := models.Order{Id: idOrder, Description: brothSearch.Name + " and " + proteinSearch.Name, Image: "https://tech.redventures.com.br/icons/ramen/ramenChasu.png"}
 	database.DB.Save(&order)
 	c.JSON(http.StatusCreated, order)
 
