@@ -11,7 +11,10 @@ import (
 func HandleRequests() {
 	r := gin.Default()
 	//Permitir todas as origens
-	r.Use(cors.Default())
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true
+	config.AddAllowHeaders("x-api-key")
+	r.Use(cors.New(config))
 	// Grupo de rotas protegidas pela chave de API
 	protected := r.Group("/", middleware.APIKeyMiddleware())
 	protected.GET("/broths", controllers.GetAllBroths)
