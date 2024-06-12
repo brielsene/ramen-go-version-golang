@@ -15,34 +15,45 @@ Este projeto é uma plataforma de e-commerce desenvolvida em Golang.
 - Gorm(ORM)
 - Docker
 - Postgresql
+- Render
 
 ## Explicação das tecnolgias utilizadasGin
 Gin - foi utilizado para tratamento das rotas<br>
 Gorm - foi o ORM (Framework de Mapeamento de Entidade) escolhido para linguagem Go<br>
 Docker - foi utilizado Docker para subirmos Um postgresql, e também um PgAdmin para adminsitração do Banco.<br>
 Postgresql - foi o banco relacional escolhido nessa aplicação
+Render - para deploy de maneira gratuita da API.
 
 ## Organização de pacotes
-![image](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/053a6b39-05fd-44b9-8231-62ef4f902ca7)
+![org](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/a1524f7f-fbc4-4b09-b5e4-6215fb797f77)
+
 
 
 
 ## Retorno da API - Via Postman
-- Proteins
-![image](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/4528933a-ac25-4abd-b815-f9a8078ce0b1)
-
-- Broths
-![image](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/888358df-7f40-4df9-a1af-b37fa67ff3aa)
+### Proteins
+- 200
+![200 proteins](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/bc3dbc81-e53a-44e3-b124-87080ca7229d)
 
 
 
-- Order
-![image](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/9e51736b-b39e-4911-a32e-d927a5d66580)
+### Broths
+- 200
+![200 broths](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/02c1ccc8-69d7-4483-87d0-a6d2a4e560d0)
 
 
 
-- Sem x-api-key (Tratamento de erro)
-![image](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/311acf79-e3c8-46c7-9ffa-5ea6ffa71822)
+### Order
+- 201
+![201 order](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/c117b6ad-17b2-4008-ae45-b96634b56981)
+
+
+- 400
+![400 order](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/86a6b782-6229-44c8-ac36-3f08f361704c)
+
+- 403(Falta de x-api-key)
+![403 forbiden order](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/9ff68d9b-eeae-4873-b779-5a34abb96718)
+
 
 
 
@@ -52,4 +63,16 @@ Postgresql - foi o banco relacional escolhido nessa aplicação
 
 ```bash
 git clone https://github.com/brielsene/ramen-go-version-golang
+
+
+```
+### Contatos
+
+```bash
+Linkedin: https://www.linkedin.com/in/gabrielsenec/
+Email: sene300@gmail.com
+
+
+```
+
 
