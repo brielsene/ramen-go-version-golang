@@ -16,13 +16,13 @@ import (
 func GetAllBroths(c *gin.Context) {
 	var broths []models.Broth
 	database.DB.Find(&broths)
-	c.JSON(http.StatusAccepted, &broths)
+	c.JSON(http.StatusOK, &broths)
 }
 
 func GetAllProteins(c *gin.Context) {
 	var proteins []models.Protein
 	database.DB.Find(&proteins)
-	c.JSON(http.StatusAccepted, proteins)
+	c.JSON(http.StatusOK, proteins)
 }
 
 func CreateOrder(c *gin.Context) {
