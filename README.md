@@ -24,6 +24,14 @@ Docker - foi utilizado Docker para subirmos Um postgresql, e também um PgAdmin 
 Postgresql - foi o banco relacional escolhido nessa aplicação
 Render - para deploy de maneira gratuita da API.
 
+## Links
+```bash
+src: https://ramen-go-version-golang.onrender.com
+ENDPOINTS -> GET: /proteins /broths
+POST: /order
+```
+
+
 ## Organização de pacotes
 ![org](https://github.com/brielsene/ramen-go-version-golang/assets/87671071/a1524f7f-fbc4-4b09-b5e4-6215fb797f77)
 
